@@ -1,14 +1,15 @@
 
 // import PropertySearchForm from '@/components/PropertySearchForm';
 // import Pagination from '@/components/Pagination';
-// import Property from '@/models/Property';
-// import connectDB from '@/config/database';
+import Property from '@/models/Property';
+import connectDB from '@/config/database';
 
-import PropertyCard from "../components/PropertyCard";
-import properties from '@/properties.json';
+import PropertyCard from "../../components/PropertyCard";
+// import properties from '@/properties.json';
 
-const PropertiesPage = () => {
-  // await connectDB();
+const PropertiesPage = async () => {
+  await connectDB();
+  const properties = await Property.find({}).lean();
   // const skip = (page - 1) * pageSize;
 
   // const total = await Property.countDocuments({});
